@@ -5,7 +5,7 @@ const StringDecoder = require('string_decoder').StringDecoder
 
 const {Configuration, OpenAIApi} = require('openai');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 
 const configuration = new Configuration({
   apiKey: process.env.OPEN_AI_KEY,
