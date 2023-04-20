@@ -36,17 +36,21 @@ server.createServer((req, res)=>{
                             messages
                         });
                         // res.writeHead(200, 'Ok', {"Content-Type":"application/json", "Access-Control-Allow-Origin":'https://chatchuck.vercel.app'})
-                        res.writeHead(200, 'Ok', {"Content-Type":"application/json", "Access-Control-Allow-Origin":'http://localhost:3000'})
+                        res.writeHead(200, 'Ok', {"Content-Type":"application/json", "Access-Control-Allow-Origin":'https://chatchuck.vercel.app'})
                         res.write(JSON.stringify(completion.data.choices[0].message.content));
                         res.end();
                     } catch(err){
                         // res.writeHead(400, 'Error', {"Content-Type":"application/json","Access-Control-Allow-Origin":'http://chatchuck.vercel.app'})
-                        res.writeHead(400, 'Error', {"Content-Type":"application/json","Access-Control-Allow-Origin":'http://localhost:3000'})
+                        res.writeHead(400, 'Error', {"Content-Type":"application/json","Access-Control-Allow-Origin":'https://chatchuck.vercel.app'})
                         res.write(JSON.stringify('An error occur'))
                     }
                 }
                  else{
-                    res.writeHead(404, "Some Error occured", {"Content-Type":"application/json","Access-Control-Allow-Origin":'http://localhost:3000'})
+                    res.writeHead(404, "Some Error occured", {
+                      "Content-Type": "application/json",
+                      "Access-Control-Allow-Origin":
+                        "https://chatchuck.vercel.app",
+                    });
                     // res.writeHead(404, "Some Error occured", {"Content-Type":"application/json","Access-Control-Allow-Origin":'https://chatchuck.vercel.app'})
                     res.write('error getting text')
                     res.end()
